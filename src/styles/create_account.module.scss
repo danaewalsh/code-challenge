@@ -8,9 +8,55 @@
 }
 
 .form {
-  width: 350px;
+  width: 450px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
   padding: 16px;
   border-radius: 16px;
   background: #fff;
+}
+
+.input{
+  border: none;
+  border-bottom: 1.5px solid lightgray;
+  display: block;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  height: 35px;
+  margin-bottom: 15px;
+  outline: none;
+  width: 425px;
+}
+
+.inputLabel {
+  color: grey;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  width: 45px;
+}
+
+.submitButton {
+  background-color: #4840BB;
+  margin: auto;
+  color: white;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
+  width: 450px;
+  text-align: center;
+  border-radius: 11px;
+  border: none;
+  height: 55px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
