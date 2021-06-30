@@ -7,6 +7,11 @@
   background: rgba(255, 255, 255, 0.6);
 }
 
+.checkbox {
+  border: lightgray;
+  margin-bottom: 15px;
+}
+
 .form {
   width: 450px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
@@ -37,6 +42,13 @@
   display: block;
   margin: auto;
   width: 45px;
+}
+
+.showPWLabel {
+  color: grey;
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .submitButton {

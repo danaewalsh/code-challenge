@@ -8,8 +8,9 @@ export default function CreateAccount() {
   const [username, setUN] = useState('');
   const [password, setPW] = useState('');
   const [created, setCreated] = useState(false);
-  const [unErr, setUNError] = useState('')
-  const [pwErr, setPWError] = useState('')
+  const [unErr, setUNErr] = useState('')
+  const [pwErr, setPWErr] = useState('')
+  const [showPW, setShowPW] = useState(false);
 
   async function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -19,6 +20,15 @@ export default function CreateAccount() {
     });
     console.log('submit is working')
     console.log(await response.json());
+  }
+
+  const showPassword = () => {
+    var target = document.getElementById("pw");
+    if (target.type === "password") {
+      target.type = "text";
+    } else {
+      target.type = "password";
+    }
   }
 
   return (
@@ -38,8 +48,17 @@ export default function CreateAccount() {
           <label className={styles.inputLabel}>Password</label>
           <input
             className={styles.input}
+            id="pw"
+            type="password"
             onChange={(e) => {setPW(e.target.value)}}
           />
+          <input
+            className={styles.checkbox}
+            type="checkbox"
+            onChange={showPassword}
+          />
+          <label
+            className={styles.showPWLabel}>Show Password</label>
           <button className={styles.submitButton}>Create Account</button>
         </form>
       </article>
