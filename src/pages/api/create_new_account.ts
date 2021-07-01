@@ -27,7 +27,7 @@ const properUN = (username: string) => {
 
 // check password against requirements
 const properPW = (password: string) => {
-  let checkPW = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{20,50}$")
+  let checkPW = new RegExp("^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[!@#\$%])(?=.{20,50}$)")
   return checkPW.test(password);
 }
 
