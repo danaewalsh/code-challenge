@@ -18,8 +18,8 @@ export default function CreateAccount() {
       method: 'POST',
       body: JSON.stringify({ username, password}),
     });
-    console.log('submit is working')
-    console.log(await response.json());
+
+    console.log('this is response from create new account', await response.json());
   }
 
   const showPassword = () => {

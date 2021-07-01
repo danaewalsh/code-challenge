@@ -7,7 +7,7 @@ interface CreateNewAccountParameters {
 
 interface BooleanResult {
   result: boolean;
-  errors?: Record<string, string>;
+  errors?: object;
 }
 
 // function to check and see if the password has been exposed
@@ -21,31 +21,36 @@ async function pwExposure(text: string) {
 
 // check username against requirements
 const properUN = (username: string) => {
-  let reqsMet = new RegExp("^(?=.{10,50}$)");
-  return reqsMet.test(username);
+  let checkUN = new RegExp("^(?=.{10,50}$)");
+  return checkUN.test(username);
 }
 
 // check password against requirements
-// const properPW = (password: string) {
-
-// }
+const properPW = (password: string) => {
+  let checkPW = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{20,50}$")
+  return checkPW.test(password);
+}
 
 export default async function createNewAccount(req: NextApiRequest, res: NextApiResponse<BooleanResult>) {
   // build CreateNewAccountParameters
   const { username }: CreateNewAccountParameters = JSON.parse(req.body);
   const { password }: CreateNewAccountParameters = JSON.parse(req.body);
 
-  // check to see if password is exposed
-  const exposed = await pwExposure(password)
+  await pwExposure(password)
+    .then(response => {
+      let allErrors = {
+        exposedPW: response.result,
+        validUN: properUN(username),
+        validPW: properPW(password),
+      };
 
-  // if password is exposed send response with pwExp error
-
-  // check to see if username fits requirements
-  const checkUN = properUN(username);
-  // if not, send response with unReq error
-
-  // check to see if password fits requirements
-  // if not, send response with pwReq error
-
-  res.status(200).json({ result: true });
+      if (allErrors.exposedPW === false && allErrors.validUN === true && allErrors.validPW === true) {
+        res.status(200).send({result: true})
+      } else {
+        res.status(200).send({result: false, errors: allErrors})
+      }
+    })
+    .catch(response => {
+      res.status(500);
+    })
 }
