@@ -3,8 +3,6 @@ import { FormEvent, useState } from 'react';
 import styles from 'src/styles/create_account.module.scss';
 
 export default function CreateAccount() {
-
-  //
   const [username, setUN] = useState('');
   const [password, setPW] = useState('');
   const [created, setCreated] = useState(false);
