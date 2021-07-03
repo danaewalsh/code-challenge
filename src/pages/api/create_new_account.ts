@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import fetch from 'cross-fetch';
 
 interface CreateNewAccountParameters {
   username: string;
@@ -33,6 +34,7 @@ const properPW = (password: string) => {
 
 export default async function createNewAccount(req: NextApiRequest, res: NextApiResponse<BooleanResult>) {
   // build CreateNewAccountParameters
+
   const { username }: CreateNewAccountParameters = JSON.parse(req.body);
   const { password }: CreateNewAccountParameters = JSON.parse(req.body);
 
@@ -45,9 +47,9 @@ export default async function createNewAccount(req: NextApiRequest, res: NextApi
       };
 
       if (allErrors.exposedPW === false && allErrors.validUN === true && allErrors.validPW === true) {
-        res.status(200).send({result: true})
+        res.status(200).json({'result': true})
       } else {
-        res.status(200).send({result: false, errors: allErrors})
+        res.status(200).json({'result': false, 'errors': allErrors})
       }
     })
     .catch(response => {
