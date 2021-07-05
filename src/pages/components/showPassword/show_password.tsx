@@ -1,9 +1,7 @@
 import { ReactElement } from 'react';
 import styles from './show_password.module.scss';
 
-const ShowPassword = (props: Props): ReactElement => {
-  const {
-  } = props;
+const ShowPassword = (): ReactElement => {
 
   const showPassword = () => {
     var target = document.getElementById("pw");

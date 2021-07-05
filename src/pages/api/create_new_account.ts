@@ -33,7 +33,6 @@ const properPW = (password: string) => {
 }
 
 export default async function createNewAccount(req: NextApiRequest, res: NextApiResponse<BooleanResult>) {
-  // build CreateNewAccountParameters
 
   const { username }: CreateNewAccountParameters = JSON.parse(req.body);
   const { password }: CreateNewAccountParameters = JSON.parse(req.body);
