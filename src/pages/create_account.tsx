@@ -2,13 +2,17 @@ import Head from 'next/head';
 import { FormEvent, useState } from 'react';
 import styles from 'src/styles/create_account.module.scss';
 
+// components
+import Button from './components/createAccountButton/create_account_button';
+import ShowPassword from './components/showPassword/show_password';
+
 export default function CreateAccount() {
   const [username, setUN] = useState('');
   const [password, setPW] = useState('');
   const [created, setCreated] = useState(false);
   const [unErr, setUNErr] = useState('')
   const [pwErr, setPWErr] = useState('');
-  const [showPW, setShowPW] = useState(false);
+  // const [showPW, setShowPW] = useState(false);
   const [exposedPW, setExposedPW] = useState('');
 
   async function handleSubmit(evt: FormEvent) {
@@ -41,14 +45,14 @@ export default function CreateAccount() {
     }
   }
 
-  const showPassword = () => {
-    var target = document.getElementById("pw");
-    if (target.type === "password") {
-      target.type = "text";
-    } else {
-      target.type = "password";
-    }
-  }
+  // const showPassword = () => {
+  //   var target = document.getElementById("pw");
+  //   if (target.type === "password") {
+  //     target.type = "text";
+  //   } else {
+  //     target.type = "password";
+  //   }
+  // }
 
   return (
     <>
@@ -77,14 +81,15 @@ export default function CreateAccount() {
           type="password"
           onChange={(e) => {setPW(e.target.value)}}
         />
-        <input
+        <ShowPassword />
+        {/* <input
           className={styles.checkbox}
           type="checkbox"
           onChange={showPassword}
-        />
-        <label
-          className={styles.showPWLabel}>Show Password</label>
-        <button className={styles.submitButton}>Create Account</button>
+        /> */}
+        {/* <label
+          className={styles.showPWLabel}>Show Password</label> */}
+        <Button />
         </form>
       </article>
     </>

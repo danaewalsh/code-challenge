@@ -7,18 +7,13 @@
   background: rgba(255, 255, 255, 0.6);
 }
 
-.checkbox {
-  border: lightgray;
-  margin-bottom: 15px;
-}
-
-.error {
-  background-color: #FFD2D2;
-  margin: 2px;
-  padding: 4px;
-  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 13px;
-}
+// .error {
+//   background-color: #FFD2D2;
+//   margin: 2px;
+//   padding: 4px;
+//   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+//   font-size: 13px;
+// }
 
 .form {
   width: 450px;
@@ -50,27 +45,6 @@
   display: block;
   margin: auto;
   width: 45px;
-}
-
-.showPWLabel {
-  color: grey;
-  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 13px;
-  margin-bottom: 15px;
-}
-
-.submitButton {
-  background-color: #4840BB;
-  margin: auto;
-  color: white;
-  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 17px;
-  width: 450px;
-  text-align: center;
-  border-radius: 11px;
-  border: none;
-  height: 55px;
-  cursor: pointer;
 }
 
 .title {
