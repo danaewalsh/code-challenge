@@ -37,12 +37,12 @@ export default function CreateAccount() {
       setPWErr('');
       setExposedPW('');
       setCreated(true);
-      // disable inputs ? (nice to have)
     } else {
       handleErrors(apiResponse.errors);
     }
   }
 
+  // error handler for api response
   const handleErrors = (error: object) => {
     if (error.exposedPW === true) {
       setExposedPW('Alert! This password has been exposed in a data breach. Please reset password now.')
@@ -67,7 +67,10 @@ export default function CreateAccount() {
           pwErr={pwErr}
           exposedPW={exposedPW}
         />
-        <label className={styles.inputLabel}>Username</label>
+        <label
+          className={styles.inputLabel}
+        > Username
+        </label>
         <input
           className={styles.input}
           onChange={(e) => {setUN(e.target.value)}}
