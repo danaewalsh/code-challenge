@@ -15,8 +15,6 @@ export default function CreateAccount() {
   const [unErr, setUNErr] = useState('')
   const [pwErr, setPWErr] = useState('');
   const [exposedPW, setExposedPW] = useState('');
-  const [displayUNReqs, setdisplayUNReqs] = useState(false);
-  const [displayPWReqs, setdisplayPWReqs] = useState(false);
 
   async function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -55,8 +53,13 @@ export default function CreateAccount() {
     }
   }
 
-  const modal = () => {
+  const modalPW = (e) => {
     const element = document.getElementById("pwModal");
+    element.open = !element.open;
+  }
+
+  const modalUN = (e) => {
+    const element = document.getElementById("unModal");
     element.open = !element.open;
   }
 
@@ -77,7 +80,14 @@ export default function CreateAccount() {
         <label
           className={styles.inputLabel}
         > Username</label>
-        <i className={styles.questionMark}>{'  '}?</i>
+        <i
+          className={styles.questionMark}
+          onMouseEnter={modalUN}
+          onMouseLeave={modalUN}>{'  '} ?
+        </i>
+        <dialog id="unModal" className={styles.modal}>
+          All usernames must be between 10 and 50 characters long.
+        </dialog>
         <input
           className={styles.input}
           onChange={(e) => {setUN(e.target.value)}}
@@ -86,11 +96,11 @@ export default function CreateAccount() {
         </label>
         <i
           className={styles.questionMark}
-          onMouseEnter={modal}
-          onMouseLeave={modal}
+          onMouseEnter={modalPW}
+          onMouseLeave={modalPW}
         >{' '}?</i>
 
-        <dialog id="pwModal">
+        <dialog id="pwModal" className={styles.modal}>
           All passwords must be between 20 and 50 characters long with at least 1 symbol (!,@,#,$,%), 1 letter (a-zA-Z), 1 number (0-9).
         </dialog>
         <input

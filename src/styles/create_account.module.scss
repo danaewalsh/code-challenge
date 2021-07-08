@@ -51,8 +51,11 @@
   cursor: pointer;
 }
 
-.reqModal {
+.modal {
   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 13px;
+  border: 1px lightgray solid;
+  color: grey;
+  max-width: 350px;
 
 }
