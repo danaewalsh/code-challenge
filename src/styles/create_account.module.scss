@@ -7,14 +7,6 @@
   background: rgba(255, 255, 255, 0.6);
 }
 
-// .error {
-//   background-color: #FFD2D2;
-//   margin: 2px;
-//   padding: 4px;
-//   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-//   font-size: 13px;
-// }
-
 .form {
   width: 450px;
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.15);
@@ -39,6 +31,7 @@
   color: grey;
   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 13px;
+  margin-right: 3px;
 }
 
 .logo {
@@ -47,10 +40,19 @@
   width: 45px;
 }
 
-// .title {
-//   font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-//   text-align: center;
-//   font-size: 30px;
-//   font-weight: 600;
-//   margin-bottom: 15px;
-// }
+.questionMark {
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: grey;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px lightgray solid;
+  padding-right: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reqModal {
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+
+}

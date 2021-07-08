@@ -15,6 +15,8 @@ export default function CreateAccount() {
   const [unErr, setUNErr] = useState('')
   const [pwErr, setPWErr] = useState('');
   const [exposedPW, setExposedPW] = useState('');
+  const [displayUNReqs, setdisplayUNReqs] = useState(false);
+  const [displayPWReqs, setdisplayPWReqs] = useState(false);
 
   async function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -49,8 +51,13 @@ export default function CreateAccount() {
     } if (error.validUN === false) {
       setUNErr('All usernames must be between 10 and 50 characters long. Please try a new username!')
     } if (error.validPW === false) {
-      setPWErr('All paswords must be between 20 and 50 characters long with at least 1 symbol (!,@,#,$,%), 1 letter (a-zA-Z), 1 number (0-9). Please try a new password!')
+      setPWErr('All passwords must be between 20 and 50 characters long with at least 1 symbol (!,@,#,$,%), 1 letter (a-zA-Z), 1 number (0-9). Please try a new password!')
     }
+  }
+
+  const modal = () => {
+    const element = document.getElementById("pwModal");
+    element.open = !element.open;
   }
 
   return (
@@ -69,13 +76,23 @@ export default function CreateAccount() {
         />
         <label
           className={styles.inputLabel}
-        > Username
-        </label>
+        > Username</label>
+        <i className={styles.questionMark}>{'  '}?</i>
         <input
           className={styles.input}
           onChange={(e) => {setUN(e.target.value)}}
         />
-        <label className={styles.inputLabel}>Password</label>
+        <label className={styles.inputLabel}>Password
+        </label>
+        <i
+          className={styles.questionMark}
+          onMouseEnter={modal}
+          onMouseLeave={modal}
+        >{' '}?</i>
+
+        <dialog id="pwModal">
+          All passwords must be between 20 and 50 characters long with at least 1 symbol (!,@,#,$,%), 1 letter (a-zA-Z), 1 number (0-9).
+        </dialog>
         <input
           className={styles.input}
           id="pw"
